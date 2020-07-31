@@ -44,7 +44,7 @@ hist(daily_total$steps,
 mean_total_steps_daily <- mean(daily_total$steps)
 median_total_steps_daily <- median(daily_total$steps)
 ```
-**The mean and median of the total number of steps taken per day are `r format(round(mean_total_steps_daily, 2), nsmall = 2)` and `r median_total_steps_daily` respectively.**
+**The mean and median of the total number of steps taken per day are 10766.19 and 10765 respectively.**
 
 ## What is the average daily activity pattern?
 1. Make a time series plot (i.e. \color{red}{\verb|type = "l"|}type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)
@@ -61,7 +61,8 @@ plot(pattern$interval,
 ```{r maxinterval}
 max_steps <- pattern$interval[which.max(pattern$steps)]
 ```
-**On average across all the days in the dataset, `r max_steps` is the 5-minute interval that contains the maximum number of steps.**
+**On average across all the days in the dataset, 835 is the 5-minute interval that contains the maximum number of steps.**
+
 
 ## Imputing missing values
 1. Calculate and report the total number of missing values in the dataset (i.e. the total number of rows with \color{red}{\verb|NA|}NAs)
@@ -71,7 +72,8 @@ missing <- sum(is.na(activity))
 The total number of missing values in the dataset is `r missing`.
 
 2. Devise a strategy for filling in all of the missing values in the dataset. The strategy does not need to be sophisticated. For example, you could use the mean/median for that day, or the mean for that 5-minute interval, etc.
-Strategy: use mean for that 5-min interval
+
+**Strategy: use mean for that 5-min interval to replace NA values**
 
 3. Create a new dataset that is equal to the original dataset but with the missing data filled in.
 ```{r}
